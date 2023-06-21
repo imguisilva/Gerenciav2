@@ -4,11 +4,6 @@
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    outline: 0;
-    appearance: none;
-    border: 0;
-    text-decoration: 0;
-    list-style: none;
     box-sizing: border-box;
 }
 
@@ -21,6 +16,7 @@
     --color-danger: #ff7782;
     --color-success: #41f1b6;
     --color-warning: #ffbb55;
+    --color-white: #FFF;
     --color-info-dark: #7d8da1;
     --color-info-light: #dce1eb;
     --color-dark: #363949;
@@ -31,7 +27,8 @@
     --text-color: #707070;
     
 
-    --box-shadow: 0 2rem 3rem -20px var(--primary-color);
+    --box-shadow: 0 3px 1rem var(--primary-color);
+    --box-shadow2: 0 3px 6px var(--primary-color);
 
     /* ==== Transição ==== */
     --tran-02: all 0.2s ease;
@@ -110,6 +107,23 @@ body.dark {
     --text-color: #CCC;
 }
 
+/* ===== CSS Reutilizavel ===== */
+
+.concluido {
+    color: var(--color-success) !important;
+    font-weight: bold;    
+}
+
+.pendente {
+    color: var(--color-warning) !important;
+    font-weight: bold;
+}
+
+.cancelado {
+    color: var(--color-danger) !important;
+    font-weight: bold;
+}
+
 /* ===== SIDEBAR ===== */
 
 .sidebar {
@@ -128,8 +142,6 @@ body.dark {
     width: 88px;
 }
 
-/* ===== CSS Reutilizavel ===== */
-
 .sidebar .text {
     font-size: 16px;
     font-weight: 500;
@@ -139,20 +151,9 @@ body.dark {
     opacity: 1;
 }
 
-.sucesso {
-    color: var(--color-success);
-}
-
-.pendente {
-    color: var(--color-warning);
-}
-
-.cancelado {
-    color: var(--color-danger);
-}
-
 .sidebar.close .text{
     opacity: 0;
+    font-size: 0px;
 }
 
 .sidebar .image {
@@ -248,7 +249,6 @@ body.dark .sidebar header .toggle {
     background: var(--primary-color-light);
     border-radius: 6px;
     transition: var(--tran-05);
-
 }
 
 .search-box input {
@@ -261,6 +261,10 @@ body.dark .sidebar header .toggle {
     font-weight: 500;
     background: var(--primary-color-light);
     transition: var(--tran-05);
+}
+
+body.dark .search-box input {
+    color: white;
 }
 
 .sidebar li a{
@@ -285,6 +289,22 @@ body.dark .sidebar header .toggle {
 body.dark .sidebar li a:hover .icon,
 body.dark .sidebar li a:hover .text{
     color: var(--text-color);
+}
+
+/* Corresponde ao icone selecionado no navbar */
+
+.active {
+    background-color: #695CFE;
+}
+
+a.active  .icon, 
+a.active  .nav-text {
+    color: white;
+}
+
+.menu-links {
+    padding: 0px;
+    display: inline;
 }
 
 .sidebar .menu-bar {
@@ -335,7 +355,7 @@ body.dark .menu-bar .mode i.moon {
     cursor: pointer;
     border-radius: 6px;
     background: var(--primary-color-light);
-    transition: var(--tran-05);
+    transition: var(--tran-01);
 }
 
 .toggle-switch .switch {
@@ -400,21 +420,25 @@ main .date input[type="date"] {
     background: transparent;
     color: var(--text-color);
     border-style: none;
+    cursor: text;
+    outline: none;
 }
 
 main .insights {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.6rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
 }
 
-main .insights > div {
-    background: white;
+main .graphic {
     padding: var(--card-padding);
-    border-radius: var(--card-border-radius);
-    margin-top: 1rem;
-    box-shadow: var(--box-shadow);
     transition: all 300ms ease;
+    box-shadow: var(--box-shadow);
+    border-radius: var(--card-border-radius);
+    background: white;
+    position: relative;
+    display: block;
 }
 
 main .insights > div:hover {
@@ -433,93 +457,348 @@ body.dark main .insights > div i {
     color: var(--color-dark);
 }
 
-main .insights > div.cancelados i {
-    background: var(--color-danger);
-}
-
-main .insights > div.concluidos i {
-    background: var(--color-success);
-}
-
-main .insights > div.pendentes i {
-    background: var(--color-warning);
-}
-
-main .insights > div .middle {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-main .insights h3 {
-    margin: 1rem 0 0.6rem;
-    font-size: 1rem;
-}
-
-main .insights .progress{
-    position: relative;
-    width: 92px;
-    height: 92px;
-    border-radius: 50%;
-}
-
-main .insights svg {
-    width: 7rem;
-    height: 7rem;
-}
-
-main .insights svg circle {
-    fill: none;
-    stroke: var(--primary-color);
-    stroke-width: 14;
-    stroke-linecap: round;
-    transform: translate(5px, 5px);
-    stroke-dasharray: 110;
-    stroke-dashoffset: 92;
-}
-
-main .insights .concluidos svg circle {
-    stroke-dashoffset: -30;
-    stroke-dasharray: 200;
-}
-
-main .insights .pendentes svg circle {
-    stroke-dashoffset: 20;
-    stroke-dasharray: 80;
-}
-
-main .insights .cancelados svg circle {
-    stroke-dashoffset: 35;
-    stroke-dasharray: 110;
-}
-
-main .insights .progress .number {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 main .insights small {
     margin-top: 1.3rem;
     display: block;
 }
 
-main .btn {
+main .btn-detalhes {
     font-weight: 600;
     background-color: rgb(139, 68, 255);
     color: white;
     border-radius: var(--border-radius-1);
-    padding: 9px;
+    padding: 5px;
     cursor: pointer;
+    border: 0;
 }
 
-main .btn:hover {
+main .btn-detalhes:hover {
     background-color: #d4d0ff;
     color: #3A3B3C;
     transition: var(--tran-02);
+}
+
+
+/* =============== RECENT ORDERS =============== */
+main .recent-orders {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+main .recent-orders h2 {
+    margin-bottom: 0.8rem;
+    font-weight: bold;
+    transition: var(--tran-04);
+}
+
+body.dark main .recent-orders h2 {
+    color: white;
+    transition: var(--tran-04);
+}
+
+main .recent-orders table#lastpro {
+    background: var(--color-white);
+    width: 100%;
+    border-radius: 10px;
+    padding: var(--card-padding);
+    text-align: center;
+    box-shadow: var(--box-shadow2);
+    transition: all 300ms ease;
+}
+
+main .recent-orders table#lastpro:hover {
+    box-shadow: none;
+}
+
+main table#lastpro tbody td {
+    height: 2.8rem;
+    border-bottom: 1px solid var(--color-light);
+    font-weight: 900px;
+}
+
+main table#lastpro tbody tr:last-child td{
+    border: none;
+}
+
+main .recent-orders a {
+    display: inline-flex;
+    text-decoration: none;
+    margin: 1rem auto;
+    color: black;
+    font-weight: 440;
+    transition: var(--tran-04);
+}
+
+body.dark main .recent-orders a {
+    color: var(--color-info-light);
+    transition: var(--tran-04);
+}
+
+/* ==================== MEDIA QUERIES ==================== */
+@media screen and (max-width: 1200px) {
+    .geral {
+        width: 94%;
+        grid-template-columns: 7rem auto 23rem;
+    }
+
+    main .insights {
+        grid-template-columns: 1fr;
+        gap: 0;
+        
+    }
+
+    main .recent-orders {
+        width: 94%;
+        position: absolute;
+    }
+
+    main .recent-orders table {
+        width: 83vw;
+    }
+
+    main table#lastpro tbody tr td:last-child {
+        display: none;
+    }
+}
+
+/* ==================== MEDIA QUERIES ==================== */
+@media screen and (max-width: 768px) {
+    .geral {
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+
+    main {
+        margin-top: 8rem;
+        padding: 0 1rem;
+    }
+
+    main .recent-orders {
+        position: relative;
+        margin: 3rem 0 0 0;
+        width: 100%;
+    }
+
+    main .recent-orders table {
+        width: 100%;
+        margin: 0;
+    }
+}
+
+/* PROTOCOLOS */
+
+form.form-protocol {
+    background-color: #CCC;
+    padding: 20px;
+    margin-top: 15px;
+    border-radius: 5px;
+    transition: all 300ms ease;
+    box-shadow: var(--box-shadow);
+}
+
+form.form-protocol:hover {
+    box-shadow: none;
+    transition: all 300ms ease;
+}
+
+fieldset {
+    border: 5px;
+}
+
+.campo input, .campo select, .campo button {
+    border-radius: 5px;
+    border-style: none;
+    height: 32px;
+    width: 180px;    
+}
+
+.campo,
+.campo-select {
+    margin-bottom: 1em;  
+    /* background-color: #41f1b6; */
+}
+
+.campo>label,
+.campo-select>label {
+    margin-bottom: 0.2em;
+    display: block;
+    font-weight: 600;
+}
+
+fieldset.grupo .campo, 
+fieldset.grupo .campo-select {
+    float: left;
+    margin-right: 1em;
+    display: block;
+}
+
+.campo input[type="text"], 
+.campo input[type="number"], 
+.campo input[type="month"], 
+.campo input[type="date"],
+.campo select, 
+.campo textarea {
+    box-shadow: 2px 2px 2px rgb(0, 0, 0, 0.4);
+    padding-left: 5px;
+}
+
+.campo input:focus, .campo select:focus, .campo textarea:focus {
+    background: #e0e0e0;
+}
+
+.select2-container--default .select2-selection--multiple {
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    -webkit-border-radius: 2px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px rgb(0, 0, 0, 0.4);
+    /* overflow-y: scroll;   */
+    overflow-x: hidden;
+    width: auto !important;
+}
+
+.selection, .select2-selection, .select2-selection--multiple {
+    height: 32px !important;
+}
+
+.select2 {
+    width: auto !important;
+}
+
+.botoes {
+    display: flex;
+    position: relative;
+}
+
+#gravar, #imprimir, #baixar {
+    box-shadow: 1px 1px 1px rgb(0, 0, 0, 0.4);
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+body.dark main #pesquisar input {
+    background-color: var(--color-info-light);
+    transition: var(--tran-04);
+}
+
+body main #pesquisar input {
+    padding: 5px;
+    background-color: var(--color-light);
+    font-weight: 500;
+    box-shadow: 1px 1px 4px black;
+    border: none;
+    outline: none;
+}
+
+main nav>div.container-fluid {
+    padding: 0px;
+}
+
+main nav div form input {
+    background-color: var(--color-info-light) !important;
+    transition: var(--tran-04);
+    font-weight: 500 !important;
+    color: rgba(0, 0, 0, 0.534) !important;
+    cursor: text;
+}
+
+main nav div form input::placeholder {
+    color: rgba(0, 0, 0, 0.534) !important;
+    font-weight: 500 !important;
+}
+
+body.dark main nav div form input::placeholder {
+    color: #ffffff56 !important;
+}
+
+body.dark main nav div form input {
+    background-color: var(--bs-body-bg) !important;
+    transition: var(--tran-03);
+    cursor: text;
+    color: #ffffff56 !important;
+}
+
+main nav div form input[type="date"]::-webkit-calendar-picker-indicator, main nav div form input[type="search"]::-webkit-search-cancel-button{
+    filter: invert(1) !important;
+    cursor: pointer;
+}
+
+body.dark main nav div form input[type="date"]::-webkit-calendar-picker-indicator, main nav div form input[type="search"]::-webkit-search-cancel-button{
+    filter: invert(0) !important;
+    cursor: pointer;
+}
+
+/* --------------- TABELA PROTOCOLOS --------------- */
+
+div.table-responsive {
+    border: 1px solid gray;
+    padding: 8px;
+    border-radius: 5px;
+    overflow: hidden;
+    align-items: center;
+}
+
+body div main div table.table {
+   margin: 0;
+   border: 1px solid white;
+   text-align: center;
+   justify-self: center;
+}
+
+#table {
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+}
+
+body table#table, body table#table tr th, body table#table tr td  {
+    border-color: rgba(0, 0, 0, 0.644);
+    color: black;
+}
+
+body.dark table#table, body.dark table#table tr th, body.dark table#table tr td  {
+    color: white;
+    border-color: rgba(255, 255, 255, 0.644);
+    transition: var(--tran-03);
+}
+
+/* ----------------- FILTRO ----------------- */
+
+body div main nav div form div {
+    display: flex; 
+    border-radius: 5px; 
+    align-items: center; 
+    padding: 5px;
+}
+
+body div main nav div form div i.filter-toggle {
+    color: #535353;cursor: pointer;
+    transition: var(--tran-05);
+}
+
+.filters.close-filter {
+    position: relative;
+    width: 645px;
+    height: 33px;
+    background-color: transparent;
+    z-index: 0;
+}
+
+.filters {
+    position: relative;
+    width: 645px;
+    height: 180px;
+    background: var(--sidebar-color);
+    transition: var(--tran-05);
+    z-index: 0;
+}
+
+li {
+    position: relative;
+    color: var(--color-info-dark);
+    list-style: none;
+}
+
+li input {
+    margin-right: 6px;
 }
