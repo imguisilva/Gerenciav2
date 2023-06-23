@@ -6,8 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script src="https://kit.fontawesome.com/391c4a19d2.js" crossorigin="anonymous"></script>
-
     <!--Ajax-->
     <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
 
@@ -34,15 +32,12 @@
     <link rel="stylesheet" href="../css/index.css" media="screen">
     <link rel="stylesheet" href="../css/print.css" media="print">
 
-    <style>
-         
-    </style>
-
     <title>Gerencia v2 - Protocolos</title>
 
 </head>
 
 <body>
+    
     <div class="geral">
         <!-- INICIO SIDEBAR -->
         <nav class="sidebar close">
@@ -257,30 +252,91 @@
                   <form class="d-flex" role="search">
                     <input type="month" name="inicial" id="inicial" class="form-control me-2">
                     <input type="month" name="final" id="final" class="form-control me-2">
-                    <input class="form-control me-2" type="search" placeholder="Palavra chave" aria-label="Search">
+                    <input class="form-control me-2" type="search" placeholder="Palavra chave">
 
                     <div>
                         <i class="fa-solid fa-sliders fa-2xl filter-toggle"></i>
                     </div>
                   </form>
 
-                  <div>
-                    <p style="justify-content: center; display: flex; margin-top: 15px;">Filtros</p>
-                    <ul>
-                        <p>Baixa</p>
-                        <li>
+                  <div class="menu-list">
+                    <h3>Filtros</h3>
+                    <div class="caixa">
+                        <ul class="topico">
+                          <p>Baixa</p>
+                          <li class="list">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="baixa" id="flexRadioDefault1" value="sim">
-                                <label class="form-check-label" for="flexRadioDefault1">Sim</label>
+                              <input class="form-check-input" type="radio" name="baixa"
+                                id="sim-baixa" value="sim">
+                              <label class="form-check-label" for="sim-baixa">Sim</label>
                             </div>
-                        </li>
-                        <li>
+                          </li>
+                          <li class="list">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="baixa" id="flexRadioDefault2" value="nao">
-                                <label class="form-check-label" for="flexRadioDefault2">Não</label>
+                              <input class="form-check-input" type="radio" name="baixa"
+                                id="nao-baixa" value="nao">
+                              <label class="form-check-label" for="nao-baixa">Não</label>
                             </div>
-                        </li>
-                    </ul>
+                          </li>
+                        </ul>
+                        <!-- ---------- -->
+                        <ul class="topico">
+                          <p>Por mim</p>
+                          <li class="list">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="sim" id="sim-por-mim" name="por-mim">
+                                <label class="form-check-label" for="sim-por-mim">Sim</label>
+                            </div>
+                          </li>
+                          <li class="list">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="nao" id="nao-por-mim" name="por-mim">
+                                <label class="form-check-label" for="nao-por-mim">Não</label>
+                            </div>
+                          </li>
+                        </ul>
+                        <!-- ---------- -->
+                        <ul class="topico">
+                            <p>Depto.</p>
+                            <li class="list">
+                              <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" value="sim" id="sim-por-mim" name="por-mim">
+                                  <label class="form-check-label" for="sim-por-mim">Contabil</label>
+                              </div>
+                            </li>
+                            <li class="list">
+                              <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" value="nao" id="nao-por-mim" name="por-mim">
+                                  <label class="form-check-label" for="nao-por-mim">Financeiro</label>
+                              </div>
+                            </li>
+                            <li class="list">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="nao" id="nao-por-mim" name="por-mim">
+                                    <label class="form-check-label" for="nao-por-mim">Fiscal</label>
+                                </div>
+                              </li>
+                              <li class="list">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="nao" id="nao-por-mim" name="por-mim">
+                                    <label class="form-check-label" for="nao-por-mim">Imóveis</label>
+                                </div>
+                              </li>
+                              <li class="list">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="nao" id="nao-por-mim" name="por-mim">
+                                    <label class="form-check-label" for="nao-por-mim">Legal</label>
+                                </div>
+                              </li>
+                              <li class="list">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="nao" id="nao-por-mim" name="por-mim">
+                                    <label class="form-check-label" for="nao-por-mim">Pessoal</label>
+                                </div>
+                              </li>
+                          </ul>
+                    </div>
+
                   </div>
                   
                 </div>
@@ -363,6 +419,18 @@
 
     </div>
 
+    <!-- Abrir/Fechar Botão filtro -->
+    <script>
+        const filter = document.querySelector("body"),
+            filter_toggle = filter.querySelector(".filter-toggle"),
+            div_filter = filter.querySelector(".filters");
+
+            filter_toggle.addEventListener("click", () => {
+                div_filter.classList.toggle("close-filter");
+            });
+    </script>
+
+    <!-- Select2 -->
     <script>
         $(document).ready(function() { 
   

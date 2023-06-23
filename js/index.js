@@ -3,10 +3,7 @@ const body = document.querySelector("body"),
       toggle = body.querySelector(".toggle"),
       searchBtn = body.querySelector(".search-box"),
       modeSwitch = body.querySelector(".toggle-switch"),
-      modeText = body.querySelector(".mode-text"),
-
-      filter_toggle = body.querySelector(".filter-toggle"),
-      div_filter = body.querySelector(".filters");
+      modeText = body.querySelector(".mode-text");
 
       toggle.addEventListener("click", () => {
         sidebar.classList.toggle("close");
@@ -17,10 +14,7 @@ const body = document.querySelector("body"),
 
       /* --------- FILTRO --------- */
 
-      filter_toggle.addEventListener("click", () => {
-        div_filter.classList.toggle("close-filter");
-      });
-
+      
 
       /* --------- FIM FILTRO --------- */
 

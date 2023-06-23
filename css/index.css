@@ -126,6 +126,15 @@ body.dark {
 
 /* ===== SIDEBAR ===== */
 
+.sidebar.close {
+    width: 88px;
+}
+
+.sidebar.close .text{
+    opacity: 0;
+    font-size: 0px;
+}
+
 .sidebar {
     position: fixed;
     top: 0;
@@ -138,10 +147,6 @@ body.dark {
     z-index: 100;
 }
 
-.sidebar.close {
-    width: 88px;
-}
-
 .sidebar .text {
     font-size: 16px;
     font-weight: 500;
@@ -149,11 +154,6 @@ body.dark {
     transition: var(--tran-03);
     white-space: nowrap;
     opacity: 1;
-}
-
-.sidebar.close .text{
-    opacity: 0;
-    font-size: 0px;
 }
 
 .sidebar .image {
@@ -697,35 +697,38 @@ main nav>div.container-fluid {
 main nav div form input {
     background-color: var(--color-info-light) !important;
     transition: var(--tran-04);
-    font-weight: 500 !important;
+    
     color: rgba(0, 0, 0, 0.534) !important;
     cursor: text;
 }
 
 main nav div form input::placeholder {
     color: rgba(0, 0, 0, 0.534) !important;
-    font-weight: 500 !important;
+    transition: var(--tran-04);
 }
 
 body.dark main nav div form input::placeholder {
     color: #ffffff56 !important;
+    transition: var(--tran-04);
 }
 
 body.dark main nav div form input {
     background-color: var(--bs-body-bg) !important;
-    transition: var(--tran-03);
+    transition: var(--tran-04);
     cursor: text;
     color: #ffffff56 !important;
 }
 
-main nav div form input[type="date"]::-webkit-calendar-picker-indicator, main nav div form input[type="search"]::-webkit-search-cancel-button{
+main form.d-flex input::-webkit-calendar-picker-indicator, main form.d-flex input::-webkit-search-cancel-button{
     filter: invert(1) !important;
     cursor: pointer;
+    transition: var(--tran-04);
 }
 
-body.dark main nav div form input[type="date"]::-webkit-calendar-picker-indicator, main nav div form input[type="search"]::-webkit-search-cancel-button{
+body.dark main form.d-flex input::-webkit-calendar-picker-indicator, body.dark main form.d-flex input::-webkit-search-cancel-button{
     filter: invert(0) !important;
     cursor: pointer;
+    transition: var(--tran-04);
 }
 
 /* --------------- TABELA PROTOCOLOS --------------- */
@@ -772,8 +775,8 @@ body div main nav div form div {
 }
 
 body div main nav div form div i.filter-toggle {
-    color: #535353;cursor: pointer;
-    transition: var(--tran-05);
+    color: #535353;
+    cursor: pointer;
 }
 
 .filters.close-filter {
@@ -793,12 +796,52 @@ body div main nav div form div i.filter-toggle {
     z-index: 0;
 }
 
-li {
+div.menu-list {
+    display: flexbox;
+    transition: var(--tran-02);
+}
+
+nav div div h3 {
+    display: block;
+    justify-content: center;
+    text-align: center; 
+    margin-top: 15px;
+    color: var(--color-info-dark);
+}
+
+main div div.caixa {
+    border: 1px solid yellow;
+    display: flex;
+    justify-content: center;
+}
+
+ul.topico {
+    /* border: 1px solid red; */
+    text-align: center;
+    margin: 0 0 0 5px;
+    padding: 10px;
+}
+
+li.list {
+    list-style: none;
+    display: flex;
+    flex-direction: initial;
+}
+
+main nav div.caixa p  {
+    /* border: 1px solid red; */
+    font-size: 14px;
+}
+
+nav div div ul li {
     position: relative;
     color: var(--color-info-dark);
     list-style: none;
 }
 
-li input {
-    margin-right: 6px;
+.close-filter div.menu-list {
+    opacity: 0;
+    font-size: 0;
+    transition: var(--tran-02);
 }
+

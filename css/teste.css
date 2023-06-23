@@ -13,3 +13,45 @@ main.container {
     display: block;
 }
 
+div.menu-list {
+    background-color: rgb(103, 103, 199);
+    display: flexbox;
+}
+
+div h3 {
+    justify-content: center;  
+    color: var(--color-info-dark);
+    background-color: aliceblue;
+    display: block;
+    text-align: center;
+}
+
+div.caixa {
+    border: 1px solid yellow;
+    display: flex;
+    justify-content: center;
+}
+
+ul.topico {
+    border: 2px solid #fc0cfc;
+    text-align: center;
+    margin: 0 0 0 5px;
+    padding: 0;
+    display: block;
+}
+
+p {
+    border: 5px solid red;
+    display: block;
+    width: 100% !important;
+}
+
+li.list {
+    background-color: #41f1b6;
+    list-style: none;
+    text-align: start;
+}
+
+label {
+    margin-right: 12px;
+}

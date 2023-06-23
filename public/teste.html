@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <script src="https://kit.fontawesome.com/391c4a19d2.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/391c4a19d2.js"
+      crossorigin="anonymous"></script>
 
     <!--Ajax-->
     <script src="https://code.jquery.com/jquery-3.6.4.js"
@@ -94,16 +95,72 @@
     </nav> -->
 
     <main class="container">
-      <div>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, ea
-        asperiores vero doloribus, dolor accusantium, necessitatibus reiciendis
-        magni veritatis eaque nihil! Tempore saepe voluptates corrupti. Error
-        quis ex quisquam corporis!
-      </div>
 
-      <i class="fa-solid fa-check"></i>
-      
+      <div class="menu-list">
+        <h3>Filtros</h3>
+        <div class="caixa">
+          <ul class="topico">
+            <p>Baixa</p>
+            <li class="list">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="baixa"
+                  id="flexRadioDefault1" value="sim">
+                <label class="form-check-label" for="flexRadioDefault1">Sim</label>
+              </div>
+            </li>
+            <li class="list">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="baixa"
+                  id="flexRadioDefault2" value="nao">
+                <label class="form-check-label" for="flexRadioDefault2">Não</label>
+              </div>
+            </li>
+          </ul>
 
-    <script src="../js/teste.js"></script>
-  </body>
-</html>
+          <ul class="topico">
+            <p>Por mim</p>
+            <li class="list">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="baixa"
+                  id="flexRadioDefault1" value="sim">
+                <label class="form-check-label" for="flexRadioDefault1">Sim</label>
+              </div>
+            </li>
+            <li class="list">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="baixa"
+                  id="flexRadioDefault2" value="nao">
+                <label class="form-check-label" for="flexRadioDefault2">Não</label>
+              </div>
+            </li>
+          </ul>
+          <ul class="topico">
+            <p>Depto.</p>
+            <li class="list">
+              <input type="checkbox" name="contabil" id="contabil">
+              <label for="contabil">Contábil</label>
+              <input type="checkbox" name="pessoal" id="pessoal">
+              <label for="pessoal">Pessoal</label>
+            </li>
+            <li class="list">
+              <input type="checkbox" name="contabil" id="contabil">
+              <label for="contabil">Legal</label>
+              <input type="checkbox" name="pessoal" id="pessoal">
+              <label for="pessoal">Fiscal</label>
+            </li>
+            <li class="list">
+              <input type="checkbox" name="contabil" id="contabil">
+              <label for="contabil">Imóveis</label>
+              <input type="checkbox" name="pessoal" id="pessoal">
+              <label for="pessoal">Financeiro</label>
+            </li>
+                       
+            
+            
+          </ul>
+        </div>
+      </main>
+
+      <script src="../js/teste.js"></script>
+    </body>
+  </html>
