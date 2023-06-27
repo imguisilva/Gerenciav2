@@ -731,7 +731,7 @@ body.dark main form.d-flex input::-webkit-calendar-picker-indicator, body.dark m
     transition: var(--tran-04);
 }
 
-/* --------------- TABELA PROTOCOLOS --------------- */
+    /* --------------- TABELA PROTOCOLOS --------------- */
 
 div.table-responsive {
     border: 1px solid gray;
@@ -765,7 +765,7 @@ body.dark table#table, body.dark table#table tr th, body.dark table#table tr td 
     transition: var(--tran-03);
 }
 
-/* ----------------- FILTRO ----------------- */
+    /* ----------------- FILTRO ----------------- */
 
 body div main nav div form div {
     display: flex; 
@@ -774,15 +774,30 @@ body div main nav div form div {
     padding: 5px;
 }
 
-body div main nav div form div i.filter-toggle {
+i.filter-toggle {
     color: #535353;
     cursor: pointer;
+}
+
+i.filter-toggle:hover {
+    color: #787878;
+    transition: var(--tran-03);
+}
+
+div.filters.close-filter i.filter-toggle {
+    transform: translateY(-50%);
+    transition: var(--tran-03);
+}
+
+div.filters i.filter-toggle {
+    transform: translateY(-50%) rotate(180deg);
+    transition: var(--tran-03);
 }
 
 .filters.close-filter {
     position: relative;
     width: 645px;
-    height: 33px;
+    height: 43.5px;
     background-color: transparent;
     z-index: 0;
     transition: var(--tran-05);
@@ -799,21 +814,27 @@ body div main nav div form div i.filter-toggle {
     position: relative;
     width: 645px;
     height: auto;
-    background: var(--sidebar-color);
+    background: var(--body-color);
     transition: var(--tran-05);
     z-index: 0;
     outline: 1px solid #3A3B3C;
+    border-radius: 5px;
+    padding: 5px;
 }
 
 nav div h3 {
     /* border: 1px solid red; */
     justify-content: center;  
-    color: var(--text-color);
+    color: black;
     text-align: center;
     margin: 15px 0 0 0;
     padding: 0;
     outline: 1px solid #3A3B3C;
     transition: var(--tran-02);
+}
+
+body.dark nav div h3 {
+    color: white;
 }
 
 div.menu-list {
@@ -837,6 +858,14 @@ ul.topico {
 div.caixa p  {
     /* border: 1px solid red; */
     font-size: 14px;
+    color: var(--color-dark);
+}
+
+.form-check-input {
+    --bs-form-check-bg: none;
+}
+
+body.dark div.caixa p  {
     color: var(--color-info-light);
 }
 
@@ -846,3 +875,11 @@ li.list {
     color: var(--text-color);
     list-style: none;
 }
+
+div.menu-list p.footer {
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+/* -------- SERVIÇO -------- */
