@@ -8,27 +8,24 @@ body {
     overflow-y: scroll;
 }
 
-main.container {
-    position: relative;
-    display: block;
+h3 {
+    justify-content: center;  
+    color: var(--color-info-dark);
+    background-color: aliceblue;
+    text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
 div.menu-list {
     background-color: rgb(103, 103, 199);
-    display: flexbox;
-}
-
-div h3 {
-    justify-content: center;  
-    color: var(--color-info-dark);
-    background-color: aliceblue;
-    display: block;
-    text-align: center;
+    height: auto;
 }
 
 div.caixa {
     border: 1px solid yellow;
     display: flex;
+    height: 100%;
     justify-content: center;
 }
 
@@ -37,13 +34,14 @@ ul.topico {
     text-align: center;
     margin: 0 0 0 5px;
     padding: 0;
-    display: block;
 }
 
 p {
     border: 5px solid red;
     display: block;
     width: 100% !important;
+    margin: 0;
+    padding: 0;
 }
 
 li.list {
@@ -53,5 +51,5 @@ li.list {
 }
 
 label {
-    margin-right: 12px;
+    margin-right: 5px;
 }

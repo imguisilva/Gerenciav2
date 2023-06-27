@@ -785,32 +785,44 @@ body div main nav div form div i.filter-toggle {
     height: 33px;
     background-color: transparent;
     z-index: 0;
+    transition: var(--tran-05);
+    outline: 0;
+}
+
+.close-filter div.menu-list, .close-filter h3, .close-filter ul, .close-filter li {
+    opacity: 0;
+    font-size: 0;
+    transition: var(--tran-02);
 }
 
 .filters {
     position: relative;
     width: 645px;
-    height: 180px;
+    height: auto;
     background: var(--sidebar-color);
     transition: var(--tran-05);
     z-index: 0;
+    outline: 1px solid #3A3B3C;
 }
 
-div.menu-list {
-    display: flexbox;
+nav div h3 {
+    /* border: 1px solid red; */
+    justify-content: center;  
+    color: var(--text-color);
+    text-align: center;
+    margin: 15px 0 0 0;
+    padding: 0;
+    outline: 1px solid #3A3B3C;
     transition: var(--tran-02);
 }
 
-nav div div h3 {
-    display: block;
-    justify-content: center;
-    text-align: center; 
-    margin-top: 15px;
-    color: var(--color-info-dark);
+div.menu-list {
+    height: auto;
+    transition: var(--tran-02);
 }
 
-main div div.caixa {
-    border: 1px solid yellow;
+div.caixa {
+    /* border: 1px solid yellow; */
     display: flex;
     justify-content: center;
 }
@@ -822,26 +834,15 @@ ul.topico {
     padding: 10px;
 }
 
-li.list {
-    list-style: none;
-    display: flex;
-    flex-direction: initial;
-}
-
-main nav div.caixa p  {
+div.caixa p  {
     /* border: 1px solid red; */
     font-size: 14px;
+    color: var(--color-info-light);
 }
 
-nav div div ul li {
-    position: relative;
-    color: var(--color-info-dark);
+li.list {
+    text-align: start;
+    /* border: 1px solid red; */
+    color: var(--text-color);
     list-style: none;
 }
-
-.close-filter div.menu-list {
-    opacity: 0;
-    font-size: 0;
-    transition: var(--tran-02);
-}
-
